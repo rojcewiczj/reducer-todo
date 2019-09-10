@@ -1,5 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import logo from './logo.svg';
+import TodoForm from './components/todoForm'
+import TodoList from './components/todoList'
 import './App.css';
 
 

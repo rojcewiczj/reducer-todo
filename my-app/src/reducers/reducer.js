@@ -23,13 +23,15 @@ export const todoReducer = (state, action) => {
          }
          case "new_task": 
          return {
-             ...state,
-             title: action.title
+            
+             title: action.title,
+             completed: false,
+             id: Math.floor(Math.random() * (+900000000 - +100000000)) + +100000000,
          }
         }
     }
   
-}
+
 
 //toggle_completed === toggle editing,
 // new task === updat_title
