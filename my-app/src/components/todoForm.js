@@ -11,7 +11,7 @@ const TodoForm = () => {
   return (
         <div>
           <input
-            className="task-input"
+            className="title-input"
             type="text"
             name="newTaskText"
             value={newTaskText}
@@ -19,7 +19,8 @@ const TodoForm = () => {
           />
           <button
             onClick={() => {
-              dispatch({ type: "new_task", title: newTaskText });
+              dispatch({ type: "new_task", payload: newTaskText });
+              console.log(state);
               setNewTaskText("");
             }}
           >
