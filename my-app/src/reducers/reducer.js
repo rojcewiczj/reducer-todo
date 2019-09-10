@@ -2,12 +2,12 @@ import React from 'react';
 
 export const initialState = {
     todoList: [ 
-         { item: 'Learn about reducers',
+         { title: 'Learn about reducers',
            completed: false,
            id: 3892987589
              },
         {
-          item: 'practice keyboard',
+          title: 'practice keyboard',
           completed: false,
           id: 2534523452
             },
@@ -15,7 +15,20 @@ export const initialState = {
 };
 
 export const todoReducer = (state, action) => {
-   return state;
+    switch(action.type) {
+        case "toggle_completed":
+         return {
+             ...state,
+             completed: !state.completed
+         }
+         case "new_task": 
+         return {
+             ...state,
+             title: action.title
+         }
+        }
+    }
+  
 }
 
 //toggle_completed === toggle editing,

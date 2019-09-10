@@ -11,12 +11,11 @@ function App() {
    <div className="header">
       <h1> Hello </h1> 
        <h2>Welcome to your reducer Todo App!</h2>
-       <TodoForm newTask = {newTask} />
+       <TodoForm  />
     </div>
   
 
-        <TodoList toggleTask={toggleTask}
-        completedTask = {completedTask} />
+        <TodoList  />
 
 </div>
   );
