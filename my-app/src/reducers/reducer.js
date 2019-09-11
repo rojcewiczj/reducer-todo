@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export const initialState = 
           [ 
          { title: 'Learn about reducers',
@@ -15,19 +16,21 @@ export const initialState =
 
 
 export const todoReducer = (state, action) => {
+    console.log("reducer state/action", state, action)
     switch(action.type) {
         
   
         case "toggle_completed":
                 let clickNewState = state.map(item => {
-                    if (item.id == action.payload) {
+                    if (item.id === action.payload) {
                       return {
                         ...item,
                         completed: !item.completed
                       };
                     } else {
                       return item;
-                    }
+                    } 
+                   
                   });
                   return clickNewState;
                   
@@ -41,9 +44,20 @@ export const todoReducer = (state, action) => {
              id: Date.now(),
          }
         ];
-        }
+        
+        case "remove_task":
+            let removeTask = state.filter(item =>
+                {
+                    if (item.completed === true) {
+                        return !item.completed;
+                    }
+                    else {
+                        return item;
+                    }
+                })
+                return removeTask
     }
-  
+}
 
 
 //toggle_completed === toggle editing,

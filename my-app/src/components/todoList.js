@@ -1,27 +1,27 @@
-import React, { useState, useReducer } from "react";
-import { initialState, todoReducer } from "../reducers/reducer";
+import React from "react";
 import Todo from './Todo';
 
-const ToDoList = () => {
-   
-    const [state, dispatch] = useReducer(todoReducer, initialState);
-    console.log(state);
+const ToDoList = (props) => {
+   console.log(props.dispatch)
+
     const completedTask = () =>  {
-        state.filter(task => !task.completed)
+        props.state.filter(task => !task.completed)
     }
-    console.log(state.completed)
     return (
       <div>
-        {state.map(task => (
-          <Todo key={task.id} task={task}  />
+        {props.state.map(task => (
+          <Todo key={task.id} task={task} dispatch={props.dispatch} />
         ))}
-        <button className="completed-btn" onClick={()=> dispatch({type: "remove_task"})}>
+        
+        <button className="completed-btn"  onClick={() => 
+             props.dispatch({ type: "remove_task" })}>
+
          Completed
         </button>
       </div>
-      
     );
-    
+  
   };
   
   export default ToDoList;
+  

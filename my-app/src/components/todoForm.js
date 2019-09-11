@@ -1,8 +1,7 @@
 import React, { useState, useReducer } from "react";
-import { initialState, todoReducer } from "../reducers/reducer";
-const TodoForm = () => {
+
+const TodoForm = (props) => {
   const [newTaskText, setNewTaskText] = useState("");
-  const [state, dispatch] = useReducer(todoReducer, initialState);
 
   const handleChanges = e => {
     setNewTaskText(e.target.value);
@@ -19,8 +18,8 @@ const TodoForm = () => {
           />
           <button
             onClick={() => {
-              dispatch({ type: "new_task", payload: newTaskText });
-              console.log(state);
+             props.dispatch({ type: "new_task", payload: newTaskText });
+             
               setNewTaskText("");
             }}
           >
